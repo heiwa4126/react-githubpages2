@@ -16,3 +16,8 @@ peaceiris/actions-gh-pages でなく
 
 - [Deploying a Static Site \| Vite](https://vitejs.dev/guide/static-deploy.html#github-pages)
 - [Setup pnpm · Actions · GitHub Marketplace](https://github.com/marketplace/actions/setup-pnpm)
+
+## メモ
+
+.js と.html が動的?に gzip 圧縮で転送される。
+どの段階で圧縮されるかは不明。
