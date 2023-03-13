@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Page1 from "./components/Page1";
+import Page2 from "./components/Page2";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <h1>Vite + React + TS</h1>
-      <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      <p>React の SPA を main ブランチ に push する毎に GitHub Pages としてデプロイするサンプル。</p>
-      <p>
-        参考: <a href="https://vitejs.dev/guide/static-deploy.html#github-pages">Deploying a Static Site | Vite</a>
-      </p>
+      <Nav />
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="page1" element={<Page1 />} />
+          <Route path="page2" element={<Page2 />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
     </div>
+  );
+}
+
+function NoMatch() {
+  return (
+    <>
+      <h1>Not found</h1>
+      <p>
+        <Link to="/">home</Link>
+      </p>
+    </>
   );
 }
 
