@@ -1,9 +1,10 @@
+import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Page1 from "./components/Page1";
-import Page2 from "./components/Page2";
+const Page2 = React.lazy(() => import("./components/Page2")); // page2だけlazy loadingのテスト
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="page1" element={<Page1 />} />
-          <Route path="page2" element={<Page2 />} />
+          <Route
+            path="page2"
+            element={
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <Page2 />
+              </React.Suspense>
+            }
+          />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
