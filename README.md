@@ -1,7 +1,11 @@
 # react-githubpages1
 
-React の SPA を main ブランチ に push する毎に
-GitHub Pages としてデプロイするサンプル。
+React の SPA を
+
+- main ブランチ に push し、
+- さらにタグをつける
+
+毎に GitHub Pages としてデプロイするサンプル。
 
 このレポジトリでは
 https://heiwa4126.github.io/react-githubpages1/
@@ -34,7 +38,23 @@ GitHub で Settings ⇒ Pages ⇒ Source を `GitHub Actions` に設定。
 `.github\workflows\main.yml` を書いて、commit & push。
 main ブランチに push する毎に GitHub Pages がビルドされるようになっている。
 
-あとは main ブランチ以外で開発、main に merge & push という手順で作業する。
+あとは
+
+```bash
+# main ブランチ以外で開発
+git checkout dev
+# main に merge & push
+git checkout main
+git merge main
+git push origin main
+# mainにタグ付け & push
+git tag v9.9.9
+git push origin main --tags
+# GitHub Pages が生成されたので 開発にもどる
+git checkout dev
+```
+
+という手順で作業する。
 
 ## 参考
 
