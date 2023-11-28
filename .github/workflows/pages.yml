@@ -5,9 +5,8 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-    tags:
-      - "*"
+    branches:
+      - gh-pages
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,12 +38,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.28.0
+          version: 8.11.0
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: "pnpm"
 
       - name: Install dependencies
@@ -61,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload dist repository
+          # Upload repository
           path: "./dist"
 
       - name: Deploy to GitHub Pages

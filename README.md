@@ -1,5 +1,7 @@
 # react-githubpages1
 
+変更: 「gh-branch ブランチに push すると更新」方式に切り替えました。
+
 React の SPA を
 
 - main ブランチ に push し、
@@ -35,8 +37,12 @@ SPA の動作確認 と git init & commit。GitHub でレポジトリを作り�
 
 GitHub で Settings ⇒ Pages ⇒ Source を `GitHub Actions` に設定。
 
-`.github\workflows\main.yml` を書いて、commit & push。
-main ブランチに push する毎に GitHub Pages がビルドされるようになっている。
+同じく
+GitHub で Settings ⇒ Environment ⇒ New environment を押して(すでに environment あれば追加でも OK)
+`Deployment branches and tags` に gh-pages を追加
+
+`.github\workflows\pages.yml` を書いて、commit & push。
+gh-pages ブランチに push する毎に GitHub Pages がビルドされるようになっている。
 
 あとは
 
@@ -45,12 +51,13 @@ main ブランチに push する毎に GitHub Pages がビルドされるよう�
 git checkout dev
 # main に merge & push
 git checkout main
-git merge main
+git merge dev
 git push origin main
-# mainにタグ付け & push
-git tag v9.9.9
-git push origin main --tags
-# GitHub Pages が生成されたので 開発にもどる
+# gh-pages に merge & push
+git checkout gh-pages
+git merge main
+git push origin gh-pages
+# GitHub Pages が生成された(はず)なので 開発にもどる
 git checkout dev
 ```
 
