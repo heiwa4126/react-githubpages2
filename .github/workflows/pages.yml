@@ -40,10 +40,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Extract repository name
+        id: extract-repo-name
+        run: |
+          repo_full_name="${{ github.repository }}"
+          repo_name=$(echo $repo_full_name | awk -F'/' '{print $2}')
+          echo "repo_name=$repo_name" >> $GITHUB_OUTPUT
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8.15.0
+          version: 9.1.0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -57,7 +64,7 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          GITHUB_REPO_NAME: ${{ github.repository.name }}
+          GITHUB_REPO_NAME: ${{ steps.extract-repo-name.outputs.repo_name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
