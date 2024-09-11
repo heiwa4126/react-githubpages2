@@ -1,32 +1,31 @@
 {
-  "name": "react-githubpages1",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
-    "actionlint": "actionlint .github/**/*.yml",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.14.2",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
-    "@vitejs/plugin-react-swc": "^3.7.0",
-    "eslint": "^9.4.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.13"
-  },
-  "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
+	"name": "react-githubpages1",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"check": "biome check --write .",
+		"actionlint": "actionlint .github/**/*.yml",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.26.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^22.5.4",
+		"@types/react": "^18.3.5",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react-swc": "^3.7.0",
+		"eslint": "^8",
+		"typescript": "^5.6.2",
+		"vite": "^5.4.4"
+	},
+	"packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
 }

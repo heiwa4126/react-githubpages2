@@ -6,7 +6,7 @@ function Home() {
 	return (
 		<>
 			<h1>GitHub Pages 1</h1>
-			<button onClick={() => setCount((count) => count + 1)}>
+			<button type="button" onClick={() => setCount((count) => count + 1)}>
 				count is {count}
 			</button>
 			<p>
