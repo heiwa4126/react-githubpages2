@@ -1,6 +1,6 @@
 nav a + a::before {
-  content: "|";
-  display: inline-block;
-  margin-left: 0.4em;
-  margin-right: 0.4em;
+	content: "|";
+	display: inline-block;
+	margin-left: 0.4em;
+	margin-right: 0.4em;
 }

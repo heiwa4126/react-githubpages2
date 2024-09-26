@@ -10,8 +10,7 @@ function Home() {
 				count is {count}
 			</button>
 			<p>
-				React の SPA を gh-pages ブランチ に push する毎に GitHub Pages
-				としてデプロイするサンプル。
+				React の SPA を gh-pages ブランチ に push する毎に GitHub Pages としてデプロイするサンプル。
 			</p>
 			<p>
 				参考:{" "}
