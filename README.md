@@ -47,7 +47,25 @@ GitHub で Settings ⇒ Environment ⇒ New environment を押して
 `Name pattern` を `v*.*.*` と書く。
 (こっちでは正規表現が使えないから。変だけど我慢すること)
 
-これで準備完了。
+### Enterprise の場合の追加設定
+
+GitHub Pages は free のレポジトリと Enterprise で違う構造の URL に発行される。
+
+実際に試したところ
+
+- free - `https://{GitHubID}.github.io/{RepositoryName}/`
+- Enterprise - `https://{randomName}.github.io/`
+
+になる。で、この差を吸収するために .github/workflows/pages.yml で IS_ENTERPRISE という環境変数を参照しているので、これを設定してください。
+
+**手順**
+
+1. GitHub で対象のリポジトリに移動し、右上の「Settings」をクリック
+2. 左側のメニューから「Secrets and variables」 > 「Actions」を選択 3.「New repository secret」ボタンをクリック
+3. シークレットの名前と値を入力:
+   - Name: `IS_ENTERPRISE`
+   - Value: `true` (Enterprise 環境の場合。Free の場合は設定しないか`false`を設定)
+4. 「Add secret」ボタンをクリックしてシークレットを保存
 
 ## 発行する手順
 
