@@ -48,9 +48,9 @@ jobs:
           echo "repo_name=$repo_name" >> $GITHUB_OUTPUT
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
-          version: 9.1.0
+          version: 9.10.0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -67,7 +67,7 @@ jobs:
           GITHUB_REPO_NAME: ${{ steps.extract-repo-name.outputs.repo_name }}
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
