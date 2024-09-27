@@ -1,7 +1,5 @@
 # react-githubpages1
 
-変更: 「gh-branch ブランチに push すると更新」方式に切り替えました。
-
 React の SPA を SemVer 式の tag つけて push するごとに
 GitHub Pages としてデプロイするサンプル。
 
