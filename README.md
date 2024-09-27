@@ -17,7 +17,7 @@ peaceiris/actions-gh-pages でなく
 Vite でプロジェクト作る。
 
 ```bash
-pnpm create vite@latest react-githubpages1 -- --template react-ts
+pnpm create vite@latest react-githubpages1 --template react-ts
 cd react-githubpages1
 ```
 
