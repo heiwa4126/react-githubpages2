@@ -47,6 +47,32 @@ GitHub で Settings ⇒ Environment ⇒ New environment を押して
 `Name pattern` を `v*.*.*` と書く。
 (こっちでは正規表現が使えないから。変だけど我慢すること)
 
+上の部分を
+GitHub CLI (gh) で実行する例:
+
+```bash
+#!/bin/bash
+
+# 環境変数を設定
+OWNER="your-github-username"
+REPO="your-repository-name"
+IS_ENTERPRISE="true"  # Enterprise環境の場合はtrue、Freeの場合はfalseまたは設定しない
+
+# GitHub PagesのソースをGitHub Actionsに設定
+gh api -X PUT /repos/$OWNER/$REPO/pages --field source=gh-actions
+
+# 新しい環境を作成
+gh api -X POST /repos/$OWNER/$REPO/environments -f name="github-pages"
+
+# 環境にデプロイメントルールを追加
+gh api -X POST /repos/$OWNER/$REPO/environments/github-pages/deployment-branch-policies -f branch="v*.*.*" -f type="tag"
+
+# IS_ENTERPRISEシークレットを設定
+gh secret set IS_ENTERPRISE --body "$IS_ENTERPRISE" --repo $OWNER/$REPO
+
+echo "設定が完了しました。"
+```
+
 ### Enterprise の場合の追加設定
 
 GitHub Pages は free のレポジトリと Enterprise で違う構造の URL に発行される。
