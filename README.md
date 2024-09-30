@@ -37,7 +37,7 @@ GitHub で Settings ⇒ Pages ⇒ Source を `GitHub Actions` に設定。
 同じく
 GitHub で Settings ⇒ Environment ⇒ New environment を押して
 (すでに environment あれば追加でも OK)
-"github-pages" という名前で追加(名前はなんでも OK)。
+"github-pages" という名前で追加(名前はなんでも OK。最近はこの 1 つ前の設定で自動生成されてる時もある)。
 
 **ここ重要**
 いま追加した環境の
