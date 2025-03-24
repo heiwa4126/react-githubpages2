@@ -1,14 +1,33 @@
-import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
-import cdn from "vite-plugin-cdn-import";
+import { type ConfigEnv, type UserConfig, defineConfig } from "vite";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-	plugins: [
-		react(),
-		cdn({
-			modules: ["react", "react-dom"],
-		}),
-	],
-	base: process.env.GITHUB_REPO_NAME ?? "./",
+export default defineConfig(({ command }: ConfigEnv) => {
+	const cfg: UserConfig = {
+		// plugins: [
+		// 	react(),
+		// 	html({
+		// 		cdn: {
+		// 			modules: ["react", "react-dom"],
+		// 		},
+		// 	}),
+		// ],
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						r: ["react-router", "react", "react-dom"],
+					},
+				},
+			},
+		},
+	};
+
+	if (command === "build") {
+		// when `vite build`
+		cfg.esbuild = {
+			drop: ["console", "debugger"], // https://esbuild.github.io/api/#drop
+		};
+	}
+
+	return cfg;
 });
