@@ -6,24 +6,24 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
-		"format": "biome format --write . && prettier --write .",
+		"format": "biome format --write . && dprint fmt  && textlint --fix \"**/*.md\"",
+		"check": "biome check --write . && dprint check",
 		"lint": "biome lint .",
-		"check": "biome check --write .  && prettier --write .",
 		"actionlint": "actionlint .github/**/*.yml",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"bp": "tsc && vite build && vite preview"
 	},
 	"dependencies": {
-		"react": "~19.0.0",
-		"react-dom": "~19.0.0",
-		"react-router": "~7.4.0"
+		"react": "~19.1.0",
+		"react-dom": "~19.1.0",
+		"react-router": "~7.4.1"
 	},
 	"devDependencies": {
-		"@tomjs/vite-plugin-html": "^1.5.2",
-		"@types/node": "^22.13.12",
-		"@types/react": "~19.0.12",
-		"@types/react-dom": "~19.0.4",
+		"@types/node": "^22.13.17",
+		"@types/react": "~19.0.13",
+		"@types/react-dom": "~19.0.5",
 		"@vitejs/plugin-react-swc": "^3.8.1",
 		"typescript": "^5.8.2",
-		"vite": "~6.2.2"
+		"vite": "~6.2.4"
 	}
 }

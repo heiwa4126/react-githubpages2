@@ -24,13 +24,13 @@ cd react-githubpages1
 このプロジェクトの
 `.github\workflows\pages.yml` をコピー。
 
-`vite.config.ts` の 設定のうち [base](https://ja.vitejs.dev/config/shared-options.html#base) を以下のように追加/編集
+`vite.config.ts` の設定のうち [base](https://ja.vitejs.dev/config/shared-options.html#base) を以下のように追加/編集
 
 ```yaml
 base: process.env.GITHUB_REPO_NAME ?? "./",
 ```
 
-SPA の動作確認 と git init & commit。GitHub でレポジトリを作り、push する。
+SPA の動作確認と git init & commit。GitHub でレポジトリを作り、push する。
 
 GitHub で Settings ⇒ Pages ⇒ Source を `GitHub Actions` に設定。
 
@@ -87,7 +87,7 @@ GitHub Pages は free のレポジトリと Enterprise で違う構造の URL �
 **手順**
 
 1. GitHub で対象のリポジトリに移動し、右上の「Settings」をクリック
-2. 左側のメニューから「Secrets and variables」 > 「Actions」を選択 3.「New repository secret」ボタンをクリック
+2. 左側のメニューから「Secrets and variables」>「Actions」を選択 3.「New repository secret」ボタンをクリック
 3. シークレットの名前と値を入力:
    - Name: `IS_ENTERPRISE`
    - Value: `true` (Enterprise 環境の場合。Free の場合は設定しないか`false`を設定)

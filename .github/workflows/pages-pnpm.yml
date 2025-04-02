@@ -5,6 +5,12 @@
 # - https://github.com/actions/setup-node#readme
 # - https://github.com/pnpm/action-setup#readme
 
+# 有効にする手順
+# 1. GitHub の該当レポジトリで Settings ⇒ Pages ⇒ Source を GitHub Actions に設定。
+# 2. 同じく GitHub で Settings ⇒ Environment で、New environment を押して、 "github-pages"という environment を選択 (1.で作られるらしい)
+# 3. この environment の Deployment branches and tags の Add deployment branch or tag rule で プルダウンで Ref type を Tag にして Name pattern を v*.*.* と書く。 (こっちでは正規表現が使えないから。変だけど我慢すること)
+# GitHub Enterprise で使う場合は、上記に加え、secrets.IS_ENTERPRISE に true を設定する。
+
 name: Deploy static content to Pages
 
 # Remove the duplicate "on" key
@@ -27,6 +33,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -44,18 +54,18 @@ jobs:
         id: extract-repo-name
         run: |
           repo_full_name="${{ github.repository }}"
-          repo_name=$(echo $repo_full_name | awk -F'/' '{print $2}')
-          echo "repo_name=$repo_name" >> $GITHUB_OUTPUT
+          repo_name=$(echo "$repo_full_name" | awk -F'/' '{print $2}')
+          echo "repo_name=$repo_name" >> "$GITHUB_OUTPUT"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.4.1
+          version: 10
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "pnpm"
 
       - name: Install dependencies
