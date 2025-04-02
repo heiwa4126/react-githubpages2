@@ -4,3 +4,7 @@ nav a + a::before {
 	margin-left: 0.4em;
 	margin-right: 0.4em;
 }
+
+nav .active {
+	color: #4CAF50;
+} /* for Navlink */

@@ -3,7 +3,7 @@ function Page2() {
 		<>
 			<h1>Page 2</h1>
 			<p>
-				baseの設定がちゃんと効いてるかのテスト。react-router-dom の HashRouter。
+				baseの設定がちゃんと効いてるかのテスト。react-router v7 の HashRouter。
 				<br />
 				(このページはlazy loadingされています)
 			</p>
