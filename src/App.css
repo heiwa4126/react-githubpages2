@@ -6,5 +6,5 @@ nav a + a::before {
 }
 
 nav .active {
-	color: #4CAF50;
+	color: #4caf50;
 } /* for Navlink */

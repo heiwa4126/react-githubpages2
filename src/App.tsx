@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router";
 import "./App.css";
-import Home from "./components/Home";
 import Nav from "./components/Nav";
-import Page1 from "./components/Page1";
-const Page2 = React.lazy(() => import("./components/Page2")); // page2だけlazy loadingのテスト
+import Home from "./pages/Home";
+import Page1 from "./pages/Page1";
+const Page2 = React.lazy(() => import("./pages/Page2")); // page2だけlazy loadingのテスト
 
 function App() {
 	return (
