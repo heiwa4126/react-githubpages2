@@ -3,7 +3,7 @@ import CounterButton from "../components/CounterButton";
 function Home() {
 	return (
 		<>
-			<h1>GitHub Pages 1</h1>
+			<h1>GitHub Pages 2</h1>
 			<p>SemVer 式の tag つけて push するごとに GitHub Pages としてデプロイするサンプル。</p>
 			<div>
 				<CounterButton /> <CounterButton initialCount={999} />
