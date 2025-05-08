@@ -1,10 +1,10 @@
-# react-githubpages1
+# react-githubpages2
 
 React の SPA を SemVer 式の tag つけて push するごとに
 GitHub Pages としてデプロイするサンプル。
 
 このレポジトリでは
-https://heiwa4126.github.io/react-githubpages1/
+https://heiwa4126.github.io/react-githubpages2/
 にデプロイされる。
 
 peaceiris/actions-gh-pages でなく
@@ -17,8 +17,8 @@ peaceiris/actions-gh-pages でなく
 Vite でプロジェクト作る。
 
 ```bash
-pnpm create vite@latest react-githubpages1 --template react-ts
-cd react-githubpages1
+pnpm create vite@latest react-githubpages2 --template react-ts
+cd react-githubpages2
 ```
 
 このプロジェクトの
