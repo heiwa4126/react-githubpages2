@@ -6,9 +6,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
-		"format": "biome format --write . && dprint fmt  && textlint --fix \"**/*.md\"",
-		"check": "biome check --write . && dprint check",
-		"lint": "biome lint .",
+ 		"format": "oxfmt",
+		"lint": "oxlint",
+		"check": "oxfmt && oxlint --fix",
 		"actionlint": "actionlint .github/**/*.yml",
 		"preview": "vite preview",
 		"bp": "tsc && vite build && vite preview"
@@ -20,10 +20,10 @@
 	},
 	"devDependencies": {
 		"@types/node": "^26.1.2",
-		"@types/react": "~19.2.17",
-		"@types/react-dom": "~19.2.3",
-		"@vitejs/plugin-react-swc": "^4.3.2",
+		"@types/react": "~19.2.18",
+		"@types/react-dom": "~19.2.4",
+		"@vitejs/plugin-react-swc": "^4.3.3",
 		"typescript": "^7.0.2",
-		"vite": "~8.1.5"
+		"vite": "~8.2.0"
 	}
 }
